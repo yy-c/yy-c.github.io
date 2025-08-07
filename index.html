@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Dr. Jane Doe - Academic Homepage</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+  <style>
+    /* Honors timeline style */
+    .honors-timeline {
+      position: relative;
+      margin-left: 0;
+      padding-left: 24px;
+      list-style: none;
+    }
+    .honors-timeline::before {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: #e3e6f0;
+      border-radius: 2px;
+    }
+    .honors-item {
+      position: relative;
+      margin-bottom: 16px;
+      padding-left: 18px;
+    }
+    .honors-item:last-child {
+      margin-bottom: 0;
+    }
+    .honors-dot {
+      position: absolute;
+      left: -2px;
+      top: 8px;
+      width: 12px;
+      height: 12px;
+      background: #1976d2;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      box-shadow: 0 0 0 2px #e3e6f0;
+    }
+    .honors-title {
+      font-weight: 700;
+      color: #1a237e;
+      font-size: 1.05em;
+    }
+    .honors-year {
+      color: #888;
+      font-size: 0.98em;
+      margin-left: 10px;
+    }
+    /* Internship timeline style */
+    .internship-timeline {
+      position: relative;
+      margin-left: 0;
+      padding-left: 24px;
+      list-style: none;
+    }
+    .internship-timeline::before {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: #e3e6f0;
+      border-radius: 2px;
+    }
+    .internship-item {
+      position: relative;
+      margin-bottom: 18px;
+      padding-left: 18px;
+    }
+    .internship-item:last-child {
+      margin-bottom: 0;
+    }
+    .internship-dot {
+      position: absolute;
+      left: -2px;
+      top: 8px;
+      width: 12px;
+      height: 12px;
+      background: #b7410e;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      box-shadow: 0 0 0 2px #e3e6f0;
+    }
+    .internship-company {
+      font-weight: 700;
+      color: #1a237e;
+      font-size: 1.08em;
+    }
+    .internship-role {
+      color: #333;
+      font-size: 1em;
+      margin-left: 8px;
+      font-weight: 500;
+    }
+    .internship-time {
+      color: #888;
+      font-size: 0.98em;
+      margin-left: 10px;
+    }
+    /* Education timeline style */
+    .education-timeline {
+      position: relative;
+      margin-left: 0;
+      padding-left: 24px;
+      list-style: none;
+    }
+    .education-timeline::before {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: #e3e6f0;
+      border-radius: 2px;
+    }
+    .education-item {
+      position: relative;
+      margin-bottom: 24px;
+      padding-left: 18px;
+    }
+    .education-item:last-child {
+      margin-bottom: 0;
+    }
+    .education-dot {
+      position: absolute;
+      left: -2px;
+      top: 8px;
+      width: 12px;
+      height: 12px;
+      background: #3f51b5;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      box-shadow: 0 0 0 2px #e3e6f0;
+    }
+    .education-university {
+      font-weight: 700;
+      color: #1a237e;
+      font-size: 1.08em;
+    }
+    .education-school {
+      color: #333;
+      font-size: 1em;
+      margin-left: 6px;
+    }
+    .education-time {
+      color: #888;
+      font-size: 0.98em;
+      margin-left: 8px;
+    }
+    .education-desc {
+      margin-top: 2px;
+      color: #444;
+      font-size: 0.98em;
+    }
+    p {
+      line-height: 1.8;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      color: #222;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 820px;
+      margin: 48px auto 32px auto;
+      background: rgba(255,255,255,0.98);
+      border-radius: 18px;
+      box-shadow: 0 8px 32px rgba(60,60,120,0.10), 0 1.5px 6px rgba(60,60,120,0.06);
+      padding: 48px 36px 36px 36px;
+      border: 1.5px solid #e3e6f0;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      margin-bottom: 18px;
+    }
+    .profile-img {
+      width: 120px;
+      height: auto;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 2.5px solid #e3e6f0;
+      box-shadow: 0 2px 12px rgba(60,60,120,0.08);
+      background: #f5f7fa;
+      transition: box-shadow 0.2s;
+    }
+    .profile-img:hover {
+      box-shadow: 0 6px 24px rgba(60,60,120,0.18);
+    }
+    h1 {
+      margin: 0 0 8px 0;
+      font-size: 2.5em;
+      font-weight: 800;
+      color: #1a237e;
+      letter-spacing: 0.01em;
+      text-shadow: 0 1px 0 #e3e6f0;
+    }
+    .subtitle {
+      font-size: 1.13em;
+      color: #3f51b5;
+      margin-bottom: 18px;
+      font-weight: 500;
+    }
+    .section {
+      margin-top: 38px;
+      padding: 0;
+      background: none;
+      border-radius: 0;
+      box-shadow: none;
+      border: none;
+      margin-bottom: 0;
+    }
+    h2 {
+      font-size: 1.25em;
+      color: #1976d2;
+      margin-bottom: 10px;
+      font-weight: 700;
+      border-left: 4px solid #3f51b5;
+      padding-left: 10px;
+      letter-spacing: 0.01em;
+      background: linear-gradient(90deg, #e3e6f0 0 60%, transparent 100%);
+      border-bottom: none;
+    }
+    ul {
+      padding-left: 22px;
+      margin-top: 8px;
+      margin-bottom: 0;
+    }
+    a {
+      color: #1976d2;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.15s;
+    }
+    a:hover {
+      text-decoration: underline;
+      color: #b7410e;
+    }
+    .contact-list {
+      margin-top: 12px;
+      font-size: 1.1em;
+      background: none;
+      border-radius: 0;
+      padding: 0;
+      box-shadow: none;
+      display: block;
+    }
+    .contact-list li {
+      margin-bottom: 3px;
+    }
+    li {
+      line-height: 1.8;
+      transition: background 0.15s;
+      border-radius: 4px;
+      padding: 2px 4px;
+    }
+    li:hover {
+      background: #f0f4ff;
+    }
+    @media (max-width: 600px) {
+      .container {
+        padding: 18px 6px;
+      }
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .profile-img {
+        width: 90px;
+        height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="nav-link nav-home">Home</a>
+    <span class="nav-divider"></span>
+    <a href="pages/about.html" class="nav-link">Learn More</a>
+  </div>
+</nav>
+<style>
+  .navbar {
+    width: 100%;
+    background: linear-gradient(90deg, #1976d2 0%, #64b5f6 100%);
+    padding: 0;
+    margin-bottom: 28px;
+    box-shadow: 0 2px 12px rgba(60,60,120,0.10);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-radius: 0 0 18px 18px;
+    animation: navbar-fadein 0.7s cubic-bezier(.4,1.4,.6,1) 1;
+  }
+  @keyframes navbar-fadein {
+    from { opacity: 0; transform: translateY(-16px); }
+    to { opacity: 1; transform: none; }
+  }
+  .navbar-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 24px;
+    height: 52px;
+    gap: 0;
+  }
+  .nav-link {
+    color: #fff;
+    font-size: 1.13em;
+    font-weight: 600;
+    text-decoration: none;
+    margin-right: 0;
+    letter-spacing: 0.03em;
+    padding: 0 22px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+    position: relative;
+  }
+  .nav-link:hover, .nav-link:focus {
+    background: rgba(255,255,255,0.13);
+    color: #ffe082;
+    box-shadow: 0 2px 8px rgba(60,60,120,0.10);
+    text-decoration: none;
+  }
+  .nav-home {
+    font-weight: 700;
+    font-size: 1.16em;
+    letter-spacing: 0.05em;
+  }
+  .nav-divider {
+    display: inline-block;
+    width: 1.5px;
+    height: 22px;
+    background: rgba(255,255,255,0.32);
+    margin: 0 8px;
+    border-radius: 2px;
+    vertical-align: middle;
+  }
+  @media (max-width: 600px) {
+    .navbar-inner {
+      padding: 0 6px;
+      height: 44px;
+    }
+    .nav-link {
+      font-size: 1em;
+      padding: 0 10px;
+      height: 32px;
+    }
+    .nav-divider {
+      height: 16px;
+      margin: 0 4px;
+    }
+    .navbar {
+      border-radius: 0 0 10px 10px;
+    }
+  }
+</style>
+  <div class="container">
+    <div class="header">
+      <img class="profile-img" src="figs/profile-img.jpg" alt="Profile picture">
+      <div>
+        <h1>Yunyang CAO<br>曹昀炀</h1>
+        <div class="subtitle">Ph.D. Candidate<br>Shanghai Research Institute for Intelligent Autonomous Systems<br>Tongji University</div>
+        <div class="contact-list">
+          E-mail: <a href="mailto:caoyunyang@tongji.edu.cn">caoyunyang@tongji.edu.cn</a><br>
+          <a href="https://scholar.google.com/citations?user=NuN2X10AAAAJ">Google Scholar</a>
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <h2>About Me</h2>
+      <p>
+        I am a Ph.D candidate at Tongji University. My research interests include <b><i>Explainable Artificial Intelligence (XAI), Large Language Model (LLM), and Time Series</i></b>. <br>
+        <span style="color:#a80000;">I am looking for a job opportunity as a research scientist or machine learning engineer.</span>
+      </p>
+    </div>
+    <div class="section">
+      <h2>Selected Publications</h2>
+      <ul>
+        <li>
+          <b>Interpretable Hybrid-Rule Temporal Point Processes</b><br>
+          <i>Yunyang Cao</b>, Juekai Lin, Hongye Wang, Wenhao Li, Bo Jin<br></i>
+          ECML-PKDD, 2025 <i>(CCF-B)</i>
+        </li>
+        <li>
+          <b>Large Language Model for Extracting Complex Contract Information in Industrial Scenes</b><br>
+          <i><b>Yunyang Cao</b>, Yanjun Li, Silong Dai</i><br>
+          ICML workshop, 2025
+        </li>
+      </ul>
+      <div style="margin-top:8px;">
+        <a href="https://scholar.google.com/citations?user=NuN2X10AAAAJ">See all publications in Google Scholar...</a>
+      </div>
+    </div>
+    <div class="section">
+      <h2>Education</h2>
+      <ul class="education-timeline">
+        <li class="education-item">
+          <span class="education-dot"></span>
+          <span class="education-university">Tongji University</span>
+          <span class="education-school">Shanghai Research Institute for Intelligent Autonomous Systems</span>
+          <span class="education-time">2022 - Present</span>
+          <div class="education-desc"><b>Ph.D.</b> in Intelligent Science and Technology</div>
+        </li>
+        <li class="education-item">
+          <span class="education-dot"></span>
+          <span class="education-university">East China Normal University</span>
+          <span class="education-school">School of Statistics</span>
+          <span class="education-time">2020 - 2022</span>
+          <div class="education-desc"><b>M.S.</b> in Applied Statistics</div>
+        </li>
+        <li class="education-item">
+          <span class="education-dot"></span>
+          <span class="education-university">East China Normal University</span>
+          <span class="education-school">School of Statistics</span>
+          <span class="education-time">2016 - 2020</span>
+          <div class="education-desc"><b>B.S.</b> in Statistics</div>
+        </li>
+      </ul>
+    </div>
+    <div class="section">
+      <h2>Internship Experience</h2>
+      <ul class="internship-timeline">
+        <li class="internship-item">
+          <span class="internship-dot"></span>
+          <span class="internship-company">Meituan</span>
+          <img src="figs/meituan_logo.png" alt="Meituan Logo" style="height:1.1em;vertical-align:-0.18em;margin-left:4px;" />
+          <span class="internship-role">Data Analyst</span>
+          <span class="internship-time">Jun. 2022 - Aug. 2022</span>
+        </li>
+      </ul>
+    </div>
+    <div class="section">
+      <h2>Honors & Awards</h2>
+      <ul class="honors-timeline">
+        <li class="honors-item">
+          <span class="honors-dot"></span>
+          <span class="honors-title">Outstanding Graduate of Shanghai</span>
+          <span class="honors-year">2022</span>
+        </li>
+        <li class="honors-item">
+          <span class="honors-dot"></span>
+          <span class="honors-title">China National Scholarship</span>
+          <span class="honors-year">2021</span>
+        </li>
+        <li class="honors-item">
+          <span class="honors-dot"></span>
+          <span class="honors-title">National College Students Mathematical Contest in Modeling, 1st Prize</span>
+          <span class="honors-year">2018</span>
+        </li>
+        <li class="honors-item">
+          <span class="honors-dot"></span>
+          <span class="honors-title">Excellent Student Tutor, ECNU</span>
+          <span class="honors-year">2018</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
