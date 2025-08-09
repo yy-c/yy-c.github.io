@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Learn More | Yunyang CAO</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Comic Sans MS', 'Comic Sans', 'Chalkboard SE', 'Comic Neue', cursive, 'Arial Rounded MT Bold', 'Arial', sans-serif;
+      background: linear-gradient(135deg, #b3cfff 0%, #1976d2 100%);
+      color: #233;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      left: 0; top: 0; right: 0; bottom: 0;
+      z-index: 0;
+      background: url('https://assets.pokemon.com/static2/_ui/img/chrome/container_bg.png') repeat;
+      opacity: 0.10;
+      pointer-events: none;
+    }
+    .navbar {
+      width: 100%;
+      background: linear-gradient(90deg, #183a6d 0%, #1976d2 60%, #0d133d 100%);
+      padding: 0;
+      margin-bottom: 28px;
+      box-shadow: 0 4px 18px rgba(60,60,120,0.13);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-radius: 0 0 22px 22px;
+      animation: navbar-fadein 0.7s cubic-bezier(.4,1.4,.6,1) 1;
+      border-bottom: 4px solid #3b4cca;
+    }
+    @keyframes navbar-fadein {
+      from { opacity: 0; transform: translateY(-16px); }
+      to { opacity: 1; transform: none; }
+    }
+    .navbar-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 0 24px;
+      height: 52px;
+      gap: 0;
+    }
+    .nav-link {
+      color: #fff;
+      font-size: 1.13em;
+      font-weight: 700;
+      text-decoration: none;
+      margin-right: 0;
+      letter-spacing: 0.03em;
+      padding: 0 22px;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      border-radius: 12px;
+      transition: background 0.18s, color 0.18s, box-shadow 0.18s, transform 0.18s;
+      position: relative;
+      background: transparent;
+      box-shadow: none;
+      border: 2px solid transparent;
+      margin-left: 0.5em;
+      text-shadow: 0 2px 8px #0d133d, 0 1px 0 #183a6d;
+    }
+    .nav-link:hover, .nav-link:focus {
+      background: rgba(255,255,255,0.10);
+      color: #ffe082;
+      box-shadow: 0 4px 16px rgba(60,60,120,0.13);
+      text-decoration: none;
+      transform: scale(1.07) rotate(-2deg);
+      border-color: #fff;
+    }
+    .nav-home {
+      font-weight: 900;
+      font-size: 1.16em;
+      letter-spacing: 0.07em;
+      color: #fff;
+      border-color: transparent;
+      background: transparent;
+    }
+    .nav-divider {
+      display: inline-block;
+      width: 2.5px;
+      height: 28px;
+      background: #3b4cca;
+      margin: 0 10px;
+      border-radius: 2px;
+      vertical-align: middle;
+      box-shadow: 0 0 0 2px #bbdefb;
+    }
+    @media (max-width: 600px) {
+      .navbar-inner {
+        padding: 0 6px;
+        height: 44px;
+      }
+      .nav-link {
+        font-size: 1em;
+        padding: 0 10px;
+        height: 32px;
+      }
+      .nav-divider {
+        height: 16px;
+        margin: 0 4px;
+      }
+      .navbar {
+        border-radius: 0 0 10px 10px;
+      }
+    }
+    .container {
+      max-width: 860px;
+      margin: 48px auto 32px auto;
+      background: linear-gradient(120deg, #fff 70%, #bbdefb 100%);
+      border-radius: 24px;
+      box-shadow: 0 8px 32px rgba(60,60,120,0.13), 0 1.5px 6px rgba(60,60,120,0.09);
+      padding: 54px 38px 120px 38px;
+      border: 3px solid #1976d2;
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .container::after {
+      content: '';
+      position: absolute;
+      right: -60px; bottom: -60px;
+      width: 180px; height: 180px;
+      background: url('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/149.png') no-repeat center/contain;
+      opacity: 0.10;
+      pointer-events: none;
+      z-index: 0;
+    }
+    h1 {
+      margin: 0 0 18px 0;
+      font-size: 2.5em;
+      font-weight: 900;
+      color: #1976d2;
+      letter-spacing: 0.04em;
+      text-shadow: 2px 2px 0 #bbdefb, 0 1px 0 #3b4cca;
+      font-family: 'Comic Sans MS', 'Comic Sans', 'Chalkboard SE', 'Comic Neue', cursive, 'Arial Rounded MT Bold', 'Arial', sans-serif;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .section {
+      margin-top: 38px;
+      padding: 0;
+      background: none;
+      border-radius: 0;
+      box-shadow: none;
+      border: none;
+      margin-bottom: 0;
+      position: relative;
+    }
+    h2 {
+      font-size: 1.35em;
+      color: #3b4cca;
+      margin-bottom: 12px;
+      font-weight: 900;
+      border-left: 7px solid #1976d2;
+      padding-left: 14px;
+      letter-spacing: 0.04em;
+      background: linear-gradient(90deg, #bbdefb 0 60%, transparent 100%);
+      border-bottom: none;
+      font-family: 'Comic Sans MS', 'Comic Sans', 'Chalkboard SE', 'Comic Neue', cursive, 'Arial Rounded MT Bold', 'Arial', sans-serif;
+      text-shadow: 1px 1px 0 #fff;
+    }
+    .hobby-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-top: 18px;
+      margin-bottom: 0;
+      padding: 0;
+      list-style: none;
+      z-index: 1;
+      position: relative;
+    }
+    .hobby-card {
+      flex: 0 1 calc(48% - 18px);
+      max-width: calc(48% - 18px);
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      background: linear-gradient(120deg, #fff 70%, #bbdefb 100%);
+      border-radius: 18px;
+      border: 2.5px solid #1976d2;
+      box-shadow: 0 2px 12px rgba(60,60,120,0.10);
+      padding: 12px 8px 12px 8px;
+      margin: 0;
+      min-height: 90px;
+      position: relative;
+    }
+
+    @media (max-width: 700px) {
+    .hobby-card {
+      flex: 1 1 100%;
+      max-width: 100%;
+      }
+    }
+    .hobby-card:hover {
+      box-shadow: 0 8px 32px rgba(60,60,120,0.18);
+      transform: translateY(-6px) scale(1.05);
+      border-color: #3b4cca;
+      background: radial-gradient(circle, #e3e6f0 60%, #fff 100%);
+    }
+    .hobby-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 18px;
+      margin-left: 2px;
+      font-size: 2.3em;
+      filter: drop-shadow(0 2px 0 #bbdefb);
+      animation: poke-bounce 1.6s infinite alternate cubic-bezier(.6,-0.28,.74,1.25);
+      flex-shrink: 0;
+      font-weight: 900;
+      color: #1976d2;
+      font-size: 1.7em;
+      line-height: 1.1;
+      letter-spacing: 0.04em;
+      margin-bottom: 4px;
+      letter-spacing: 0.03em;
+      font-family: 'Comic Sans MS', 'Comic Sans', 'Chalkboard SE', 'Comic Neue', cursive, 'Arial Rounded MT Bold', 'Arial', sans-serif;
+      text-shadow: 1px 1px 0 #bbdefb;
+      margin-top: 0;
+    }
+    .hobby-title {
+      font-weight: 900;
+      color: #000000;
+      font-size: 1.13em;
+      margin-bottom: 6px;
+      letter-spacing: 0.03em;
+      font-family: 'Comic Sans MS', 'Comic Sans', 'Chalkboard SE', 'Comic Neue', cursive, 'Arial Rounded MT Bold', 'Arial', sans-serif;
+      text-shadow: 1px 1px 0 #afafaf;
+    }
+    .hobby-desc {
+      color: #3b4cca;
+      font-size: 0.98em;
+      text-align: left;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      margin: 0;
+    }
+    .works-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-top: 18px;
+      margin-bottom: 0;
+      padding: 0;
+      list-style: none;
+      z-index: 1;
+      position: relative;
+    }
+    .work-card {
+      flex: 0 1 calc(47% - 18px);
+      max-width: calc(47% - 18px);
+      min-width: 220px;
+      background: linear-gradient(120deg, #fff 60%, #bbdefb 100%);
+      border-radius: 18px;
+      box-shadow: 0 2px 12px rgba(60,60,120,0.10);
+      padding: 14px 12px 14px 12px;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.18s, border 0.18s;
+      border: 2.5px solid #1976d2;
+      position: relative;
+    }
+    .work-card::after {
+      content: '';
+      position: absolute;
+      right: 0px;
+      bottom: 0px;
+      width: 100px;
+      height: 100px;
+      opacity: 0.13;
+      z-index: 0;
+      pointer-events: none;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+    .work-card[data-pokemon="Gothitelle"]::after {
+      background-image: url('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/576.png');
+    }
+    .work-card[data-pokemon="Milotic"]::after {
+      background-image: url('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/350.png');
+    }
+    .work-card:hover {
+      box-shadow: 0 8px 32px rgba(60,60,120,0.18);
+      transform: translateY(-6px) scale(1.04);
+      border-color: #3b4cca;
+      background: radial-gradient(circle, #e3e6f0 60%, #fff 100%);
+    }
+    .work-title {
+      font-weight: 900;
+      color: #3b4cca;
+      font-size: 1.35em;
+      margin-bottom: 6px;
+      letter-spacing: 0.03em;
+      font-family: 'Comic Sans MS', 'Comic Sans', 'Chalkboard SE', 'Comic Neue', cursive, 'Arial Rounded MT Bold', 'Arial', sans-serif;
+      text-shadow: 1px 1px 0 #bbdefb;
+    }
+    .work-desc {
+      color: #1976d2;
+      font-size: 1em;
+      margin-bottom: 8px;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+    }
+    .work-link {
+      position: relative;
+      display: inline-block;
+      color: #fff;
+      background: linear-gradient(90deg, #3b4cca 60%, #1976d2 100%);
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 1.0em;
+      transition: background 0.15s, color 0.15s, box-shadow 0.15s;
+      padding: 8px 16px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(60,60,120,0.10);
+      letter-spacing: 0.03em;
+      border: 2px solid #bbdefb;
+      margin-top: auto;
+      margin-right: auto;
+    }
+    .work-link:hover {
+      color: #ffffff;
+      background: linear-gradient(90deg, #1976d2 60%, #3b4cca 100%);
+      box-shadow: 0 4px 16px rgba(60,60,120,0.18);
+      text-decoration: none;
+      border-color: #3b4cca;
+    }
+    @media (max-width: 900px) {
+      .container {
+        padding: 18px 6px;
+      }
+      .hobby-list, .works-list {
+        flex-direction: row;
+        gap: 24px;
+      }
+      .hobby-card, .work-card {
+        max-width: 100%;
+        min-width: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="nav-link nav-home">Home</a>
+    <span class="nav-divider"></span>
+    <a href="more.html" class="nav-link">Learn More</a>
+  </div>
+</nav>
+<div class="container">
+  <h1>
+    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" alt="Pokeball" style="height:1.5em;vertical-align:-0.18em;margin-right:8px;image-rendering:pixelated;"/>
+    Learn More About Me
+    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/master-ball.png" alt="Master Ball" style="height:1.5em;vertical-align:-0.18em;margin-left:8px;image-rendering:pixelated;"/>
+  </h1>
+  <div class="section">
+    <h2>My Hobbies</h2>
+    <ul class="hobby-list">
+      <li class="hobby-card">
+        <span class="hobby-icon"><img src="figs/leetcode_logo.png" alt="LeetCode" style="height:2.5em;width:2.5em;"/></span>
+        <div style="display:flex;flex-direction:column;align-items:flex-start;justify-content:center;flex:1;">
+          <div class="hobby-title"><b>Coding</b></div>
+          <div class="hobby-desc">
+            I solved 1300+ problems on <a href="https://leetcode.cn/u/caoy-9/" style="color:#1207af;font-weight:bold;">LeetCode</a>.<br>
+            I like building some interesting tools.</div>
+        </div>
+      </li>
+      <li class="hobby-card">
+        <span class="hobby-icon"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f6b4.png" alt="Cycling" style="height:2.5em;width:2.5em;"/></span>
+        <div style="display:flex;flex-direction:column;align-items:flex-start;justify-content:center;flex:1;">
+          <div class="hobby-title">Sports</div>
+          <div class="hobby-desc">Cycling, badminton, basketball, playing go, etc.</div>
+        </div>
+      </li>
+      <li class="hobby-card">
+        <span class="hobby-icon"><img src="figs/pearl_logo.png" alt="Pearl" style="height:2.5em;width:2.5em;"/></span>
+        <div style="display:flex;flex-direction:column;align-items:flex-start;justify-content:center;flex:1;">
+          <div class="hobby-title">Travel</div>
+          <div class="hobby-desc">
+            Enjoying the natural scenery.<br>
+            Shooting and editing videos.</div>
+        </div>
+      </li>
+      <li class="hobby-card">
+        <span class="hobby-icon"><img src="figs/conan_logo.png" alt="Conan" style="height:2.5em;width:2.5em;"/></span>
+        <div style="display:flex;flex-direction:column;align-items:flex-start;justify-content:center;flex:1;">
+          <div class="hobby-title">Animation</div>
+          <div class="hobby-desc">A big fan of Detective Conan and Pokémon.</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="section">
+    <h2>Interesting Tools</h2>
+  <ul class="works-list">
+      <li class="work-card" data-pokemon="Gothitelle">
+        <div class="work-title">KujiKlutch Ichiban 一番赏计算器</div>
+        <div class="work-desc">A probability calculator for Ichiban Kuji lottery draws.</div>
+        <a class="work-link" href="https://yy-c.github.io/-KujiKlutch-/" target="_blank">Calculate Now 开始演算</a>
+      </li>
+      <li class="work-card" data-pokemon="Milotic">
+        <div class="work-title">Snake Game​​</div>
+        <div class="work-desc">The only game where growing longer is your path to a shorter life!</div>
+        <a class="work-link" href="https://yy-c.github.io/SnakeGame/" target="_blank">Play Now</a>
+      </li>
+      </li>
+    </ul>
+  </div>
+</div>
+</body>
