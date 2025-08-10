@@ -294,6 +294,12 @@
     .work-card[data-pokemon="Milotic"]::after {
       background-image: url('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/350.png');
     }
+    .work-card[data-pokemon="Chi-Yu"]::after {
+      background-image: url('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1004.png');
+    }
+    .work-card[data-pokemon="Falinks"]::after {
+      background-image: url('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/870.png');
+    }
     .work-card:hover {
       box-shadow: 0 8px 32px rgba(60,60,120,0.18);
       transform: translateY(-6px) scale(1.04);
@@ -349,6 +355,13 @@
         gap: 24px;
       }
       .hobby-card, .work-card {
+        max-width: 100%;
+        min-width: 0;
+      }
+    }
+    @media (max-width: 700px) {
+      .work-card {
+        flex: 1 1 100%;
         max-width: 100%;
         min-width: 0;
       }
@@ -410,14 +423,24 @@
     <h2>Interesting Tools</h2>
   <ul class="works-list">
       <li class="work-card" data-pokemon="Gothitelle">
-        <div class="work-title">KujiKlutch Ichiban 一番赏计算器</div>
-        <div class="work-desc">A probability calculator for Ichiban Kuji lottery draws.</div>
+        <div class="work-title">KujiKlutch 一番赏计算器</div>
+        <div class="work-desc">A probability calculator for Ichiban Kuji lottery draws. (Chinese Ver.)</div>
         <a class="work-link" href="https://yy-c.github.io/-KujiKlutch-/" target="_blank">Calculate Now 开始演算</a>
       </li>
       <li class="work-card" data-pokemon="Milotic">
         <div class="work-title">Snake Game​​</div>
         <div class="work-desc">The only game where growing longer is your path to a shorter life!</div>
         <a class="work-link" href="https://yy-c.github.io/SnakeGame/" target="_blank">Play Now</a>
+      </li>
+      <li class="work-card" data-pokemon="Chi-Yu">
+        <div class="work-title">Digital Wooden Fish 电子木鱼​</div>
+        <div class="work-desc">敲电子木鱼，攒赛博功德！ (Chinese Ver.)</div>
+        <a class="work-link" href="https://yy-c.github.io/DigitalWoodenFish/" target="_blank">开始积累功德</a>
+      </li>
+      <li class="work-card" data-pokemon="Falinks">
+        <div class="work-title">Tetris Game​</div>
+        <div class="work-desc">Success disappears, mistakes pile up, but you keep playing.</div>
+        <a class="work-link" href="https://yy-c.github.io/TetrisGame/" target="_blank">Play Now</a>
       </li>
       </li>
     </ul>
